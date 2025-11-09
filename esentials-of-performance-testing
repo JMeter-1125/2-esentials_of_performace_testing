@@ -1,0 +1,94 @@
+1. Introduction to Performance Testing
+Performance testing adalah proses pengujian yang bertujuan untuk mengetahui seberapa baik sebuah sistem mampu bekerja di bawah beban tertentu. Fokus utama pengujian ini adalah memastikan aplikasi tetap cepat, stabil, dan mampu menangani pertumbuhan jumlah pengguna seiring waktu.
+Tujuan Utama Performance Testing
+- Menilai kinerja di bawah tekanan (load): Mengukur bagaimana aplikasi merespon saat diakses banyak pengguna secara bersamaan.
+  Website pembelian tiket konser. Saat penjualan dibuka, ribuan user membuka halaman di waktu yang sama. Load testing memastikan server tetap merespon dengan baik.
+- Memastikan kecepatan (speed): Waktu respon harus tetap sesuai standar meskipun trafik tinggi.
+  Aplikasi ride-hailing seperti Grab/GoJek. Ketika jam pulang kantor, order meningkat. Aplikasi harus tetap cepat menampilkan driver & estimasi harga.
+- Menilai stabilitas (stability): Aplikasi tidak boleh mengalami crash atau penurunan performa secara signifikan.
+  Sistem absensi kantor yang berjalan 24/7. Selama bertahun-tahun sistem harus tetap stabil tanpa restart berlebihan atau penurunan performa.
+- Menguji skalabilitas (scalability): Sistem harus dapat ditingkatkan kapasitasnya ketika jumlah pengguna atau data bertambah.
+  Platform e-learning yang awalnya hanya dipakai 100 orang, kemudian tiba-tiba dipakai 10.000 orang. Sistem harus mudah di-scale tanpa rewrite total.
+Performance testing membantu memastikan kondisi tersebut dapat terpenuhi sebelum kejadian nyata terjadi di lingkungan produksi.
+
+2. What is Performance Testing
+Performance Testing adalah proses pengujian yang bertujuan untuk mengukur kecepatan (speed), kestabilan (stability), dan kemampuan skala (scalability) suatu aplikasi ketika beroperasi di bawah berbagai tingkat beban (load).
+Pengujian ini tidak hanya dilakukan ketika aplikasi dalam keadaan beban ringan, tetapi juga ketika jumlah permintaan meningkat secara bertahap hingga titik maksimal yang mampu ditangani oleh sistem.
+Kondisi Beban	Tujuan yang Ingin Dilihat	Contoh Kondisi
+  - Beban Ringan (Low Load)	: Pastikan fungsi dasar berjalan dengan lancar	5–50 user menggunakan aplikasi seperti biasa
+  - Beban Sedang (Medium Load) : Evaluasi apakah kinerja tetap stabil	200–500 user aktif dalam waktu yang bersamaan
+  - Beban Tinggi (High Load) : Ketahui batas kemampuan sistem sebelum performa menurun
+Tujuan Performance Testing
+  - Mengetahui seberapa cepat aplikasi merespon permintaan
+  - Memastikan aplikasi tetap stabil dalam jangka waktu lama
+  - Menilai apakah sistem bisa di-scale (ditingkatkan kapasitasnya) ketika jumlah pengguna bertambah
+  - Mengidentifikasi bottleneck seperti CPU, Memory, Database, Network, atau kode yang tidak optimal
+
+3. Type of Performance Testing
+Performance Testing memiliki beberapa jenis pengujian, di mana masing-masing memiliki tujuan spesifik dalam mengukur bagaimana aplikasi merespon berbagai kondisi beban. Berikut penjelasan tiap jenis pengujian beserta contoh nyata yang relevan.
+- Load Testing	
+  Mengukur performa pada beban pengguna yang sesuai ekspektasi	Menguji apakah aplikasi tetap berjalan normal ketika jumlah pengguna mencapai angka yang diprediksi dalam kondisi real.	Web e-commerce diuji dengan 5.000 pengguna aktif karena ini jumlah pengguna normal pada jam sibuk.
+- Stress Testing	
+  Mengetahui batas maksimal aplikasi sebelum gagal	Beban pengguna terus ditambah melebihi normal untuk melihat kapan sistem mulai melambat atau crash.	Server diuji hingga 100.000 permintaan/s untuk menemukan batasnya, walaupun target produksi hanya 5.000 permintaan/s.
+- Spike Testing	
+  Mengukur reaksi aplikasi terhadap lonjakan pengguna yang tiba-tiba	Pengguna tiba-tiba melonjak dalam waktu singkat.	Aplikasi tiket konser saat penjualan dibuka → dalam 5 detik ribuan user masuk bersamaan.
+- Endurance / Soak Testing	
+  Menguji stabilitas dalam durasi panjang pada beban normal	Dilakukan selama berjam-jam atau berhari-hari untuk mendeteksi memory leak atau penurunan performa seiring waktu.	Sistem absensi kantor berjalan 24 jam sehari → diuji selama 72 jam terus menerus.
+- Scalability Testing	
+  Mengetahui kemampuan sistem untuk ditingkatkan atau dikurangi kapasitasnya	Menguji apakah sistem dapat di-scale up (menambah resource) atau scale down saat beban turun.	Platform e-learning yang awalnya hanya untuk 100 siswa, kemudian dipakai 10.000 siswa.
+- Volume Testing	
+  Menguji performa terkait jumlah data yang sangat besar	Fokus pada performa database, kecepatan query, indexing, dan konsumsi memori.	Mengisi database dengan 10 juta record untuk mengukur kecepatan query pencarian produk.
+- Benchmark Testing	
+  Membandingkan performa dengan standar atau target tertentu	Menentukan apakah performa aplikasi sudah memenuhi SLA/SLO yang ditentukan.	Target login API ≤ 300 ms. Hasil test menunjukkan 280 ms → berarti memenuhi standar.
+
+4. Major Performance Testing Tools in Market
+Di dunia performance testing terdapat beberapa tools utama yang digunakan untuk menguji kecepatan, stabilitas, dan skalabilitas aplikasi. Masing-masing tool memiliki karakteristik, kelebihan, serta penggunaan yang berbeda sesuai kebutuhan organisasi.
+- JMeter 
+  adalah tool open-source yang sangat populer dan banyak digunakan karena fleksibilitasnya. JMeter mendukung berbagai protokol seperti HTTP, JDBC, FTP, hingga SOAP, dan juga mempunyai banyak plugin untuk memperluas kemampuan pengujian. 
+  Keunggulan JMeter adalah gratis, mudah diintegrasikan, dan cocok untuk pengujian API. Namun, JMeter cukup boros sumber daya ketika jumlah virtual user sangat besar, dan scripting bisa menjadi kompleks jika skenario pengujian rumit.
+- LoadRunner 
+  merupakan tool komersial dengan kapabilitas enterprise yang kuat. LoadRunner mampu mensimulasikan pengguna dalam jumlah sangat besar dan mendukung banyak jenis protokol aplikasi. 
+  Tools ini sangat stabil dan dilengkapi fitur analisis hasil yang mendalam. Kekurangannya adalah biaya lisensi yang sangat mahal serta proses setup dan konfigurasi yang cenderung rumit. LoadRunner biasanya digunakan pada perusahaan besar dengan kebutuhan pengujian berskala tinggi.
+- NeoLoad 
+  merupakan tool enterprise yang modern dengan integrasi yang baik terhadap pipeline DevOps dan arsitektur microservices. NeoLoad mudah digunakan dan sangat baik dalam pengujian aplikasi kompleks. 
+  Namun, sama seperti LoadRunner, NeoLoad bersifat berbayar sehingga mungkin kurang cocok bagi organisasi dengan anggaran terbatas.
+- BlazeMeter 
+  platform cloud yang dapat menjalankan skrip dari JMeter, Selenium, Gatling, hingga k6. Keunggulan BlazeMeter adalah kemampuannya menjalankan load test besar tanpa perlu mengelola infrastruktur server secara manual. 
+  Namun, sebagian besar fitur lanjutan BlazeMeter berbayar, dan ketergantungannya pada cloud membuat biaya dapat meningkat seiring frekuensi pengujian.
+- Gatling 
+  tool performance testing berbasis Scala dengan kekuatan utama pada efisiensi dan throughput tinggi. Gatling sangat cepat dalam mengeksekusi permintaan HTTP dan cocok dipakai dalam pipeline CI/CD. 
+  Kekurangannya adalah kurva belajar yang cukup tinggi karena menggunakan bahasa Scala, dan tidak sefleksibel JMeter dalam mendukung berbagai protokol.
+- K6 
+  tool performance testing modern yang ditulis menggunakan bahasa Go dan menggunakan JavaScript sebagai bahasa scripting. k6 sangat ringan, cepat, dan ideal untuk environment DevOps serta integrasi CI/CD. 
+  k6 menjadi pilihan utama untuk pengujian API dan microservices karena mudah diotomasi dan menghasilkan output metric yang jelas. Namun, k6 tidak mendukung banyak protokol seperti JMeter dan beberapa library JavaScript perlu dibundel terlebih dahulu sebelum digunakan.
+Secara ringkas, JMeter unggul pada fleksibilitas dan komunitas yang luas, LoadRunner dan NeoLoad kuat untuk kebutuhan enterprise besar, BlazeMeter unggul pada kemampuan load testing berbasis cloud, Gatling cocok untuk throughput API yang tinggi, 
+sedangkan k6 adalah pilihan terbaik untuk performance testing modern yang terintegrasi dengan CI/CD dan aplikasi berbasis microservices.
+
+5. Why Performance Testing is Needed
+Performance testing sangat penting dilakukan karena kinerja sebuah aplikasi memiliki dampak langsung terhadap pengalaman pengguna, kepercayaan pelanggan, dan keberhasilan bisnis secara keseluruhan. Ada ungkapan yang relevan dalam dunia software:
+“Membutuhkan berbulan-bulan untuk mendapatkan satu pelanggan, tetapi hanya beberapa detik untuk kehilangannya.” Artinya, jika aplikasi lambat atau tidak responsif, pengguna dapat berpindah ke kompetitor dalam waktu sangat cepat.
+Performance testing membantu memastikan bahwa aplikasi dapat berjalan optimal dalam berbagai kondisi. Dengan melakukan pengujian ini, kita dapat mengetahui apakah aplikasi mampu menangani jumlah pengguna yang meningkat tanpa mengalami penurunan performa. 
+Selain itu, performance testing membantu menemukan bottleneck atau titik lemah dalam sistem—misalnya pada database, server, API, atau bahkan logika pemrograman—yang bisa menyebabkan aplikasi menjadi lambat atau mengalami crash ketika berada di bawah tekanan.
+Tujuan penting lainnya adalah memastikan bahwa aplikasi memiliki kecepatan, responsivitas, dan skalabilitas yang baik. Aplikasi yang responsif memberikan pengalaman penggunaan yang nyaman, sementara skalabilitas memungkinkan sistem untuk berkembang dan 
+menyesuaikan kapasitasnya dengan kebutuhan. Tanpa performance testing, aplikasi mungkin terlihat baik dalam kondisi normal, tetapi gagal total saat menghadapi lonjakan pengguna di dunia nyata.
+Dengan demikian, performance testing bukan hanya tentang pengukuran teknis, tetapi merupakan langkah strategis untuk menjaga kualitas layanan, kepuasan pelanggan, dan kredibilitas bisnis.
+
+6. Key Concepts in Performance Testing - Metrics and Measurements
+Dalam performance testing, terdapat sejumlah konsep dan metrik penting yang digunakan untuk menilai bagaimana suatu aplikasi berperforma di bawah beban tertentu. Memahami istilah-istilah ini sangat penting agar kita 
+dapat membaca hasil pengujian dengan benar, mengidentifikasi masalah, dan memberikan rekomendasi yang tepat.
+- Virtual Users (VUs) adalah jumlah pengguna tiruan yang mensimulasikan aktivitas nyata pada sistem selama pengujian. Semakin banyak VU yang dijalankan, semakin tinggi beban yang dialami sistem.
+- Concurrent Users adalah jumlah pengguna yang sedang aktif dalam sistem pada waktu yang sama, misalnya sedang melakukan login, checkout, atau transaksi.
+- Simultaneous Users adalah pengguna yang melakukan aksi yang sama pada waktu yang persis bersamaan, contohnya menekan tombol “Pesan Tiket” dalam satu detik yang sama.
+- Think Time adalah waktu jeda yang diberikan antara setiap tindakan user dalam simulasi untuk meniru perilaku manusia nyata, seperti membaca halaman sebelum menekan tombol berikutnya.
+- Response Time adalah waktu yang dibutuhkan sistem untuk memproses permintaan dan mengirimkan hasil kembali ke pengguna. Semakin kecil response time, semakin baik.
+- Latency adalah waktu tunggu pada jaringan sebelum request mulai diproses oleh server. Latency tinggi dapat terjadi karena jarak server, koneksi lambat, atau masalah jaringan.
+- Throughput adalah jumlah permintaan (requests) atau data yang berhasil diproses sistem per detik. Ini menunjukkan kapasitas sistem dalam menangani beban tinggi.
+- Saturation menggambarkan kondisi ketika sistem mencapai batas maksimum, di mana penambahan beban tidak meningkatkan throughput tetapi malah meningkatkan waktu respon atau menyebabkan error.
+- Scalability merujuk pada kemampuan sistem untuk meningkatkan kapasitas dengan menambah sumber daya (seperti CPU, RAM, atau jumlah server) ketika jumlah pengguna meningkat.
+- Bottleneck adalah titik lemah dalam sistem yang paling dulu menyebabkan penurunan performa. Bottleneck dapat terjadi di area CPU, Memory, Database, Disk I/O, atau Network.
+- CPU Utilization dan Memory Utilization adalah ukuran seberapa besar penggunaan CPU dan RAM selama proses load test. Jika salah satu mencapai 100%, itu biasanya indikasi bottleneck.
+- Peak Time adalah waktu dimana aplikasi menerima trafik terpadat, misalnya jam makan siang untuk aplikasi food delivery.
+- Peak Load adalah jumlah beban tertinggi (permintaan atau user) yang diterima sistem dalam periode tersebut.
+
+7.
+
