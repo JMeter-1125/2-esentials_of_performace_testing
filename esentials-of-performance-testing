@@ -90,5 +90,32 @@ dapat membaca hasil pengujian dengan benar, mengidentifikasi masalah, dan member
 - Peak Time adalah waktu dimana aplikasi menerima trafik terpadat, misalnya jam makan siang untuk aplikasi food delivery.
 - Peak Load adalah jumlah beban tertinggi (permintaan atau user) yang diterima sistem dalam periode tersebut.
 
-7.
+7. Performance Testing Process (Life Cycle) 
+  1. Requirement gathering and analysis 
+  2. Planning and design 
+  3. Environment setup 
+  4. Tool selection 
+  5. Test Script development 
+  6. Test Execution 
+  7. Monitoring and analysis 
+  8. Tuning and optimization 
+  9. Retesting 
+  10. Reporting 
+  11. Continuous monitoring 
+Berbeda dengan Software Testing Life Cycle secara umum yang terdiri : 
+  1. Requirement analiysis. aktivities : identify performance criteria (response time, throughput. etc), analyze use cases and workload models deliverables : performance test requirements document, workload model - 
+  2. Test Planning (Tool selection & test design). aktivities : define test objectives/scope/ and strategy, select tools and hardware requirements, create risk assessment, schedule resources and timelines deliverables : performance test plan (test tool configuration plan, risk assessment report, test schedule) 
+  3. Test case development (Test script development). aktivities : develop test scripts for scenarios(load/stress/endurance), prepare test data deliverables : performance test scripts, test data 
+  4. Environment setup. aktivities : configure a production-like environment for performance test, setup tools/servers/database/network, validate the setup with a dry run deliverables : configured test environment 
+  5. Test execution (Monitoring & analysis, tuning & Optimization, Retesting, Reporting). aktivities : execute performance test (load, stress, spike, endurance), monitor system metrics during test runs, identify and log defects & retest deliverables : test execution logs, monitoring metrics, defect logs 
+  6. Test Cycle closure (Final Reporting). aktivities : analyze test results and compare with requirements, identify bottlenecks and recoment optimization, document lessons learned deliverables : test closure report (test analysis sumary/statistics, recomendations)
+
+8. Evaluating performance Acros the Software Development Lifecycle (SDLC)
+  Shift-Left Performance Testing -> tidak hanya fokus testing, fokus pada performa dan kualitas produk berdasarkan requirement analysis phase
+  1. Requirement analysis (understanding what is needed). Berapa banyak user mengakses dalam waktu yg sama?, Seberapa cepat app merespon? dll
+  2. System Design (Making a blueprint). Choose rigth architecture, database, technology
+  3. Implementation (Building the code). Write clean/optimized code, avoid createing band loops, avoid heavy operations that slow down the app
+  4. Testing (Checking if it works). Test speed under different conditions, with a lot of users etc
+  5. Deployment (Launching the app). Ensure the app runs smoothly on live servers
+  6. Maintenance (Keeping it running). Monitor and fix
 
